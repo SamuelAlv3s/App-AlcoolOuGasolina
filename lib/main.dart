@@ -1,5 +1,6 @@
 import 'dart:ffi';
 
+import 'package:alcool_gasolina/pages/home.page.dart';
 import 'package:alcool_gasolina/widgets/input.widget.dart';
 import 'package:alcool_gasolina/widgets/load-button.widget.dart';
 import 'package:alcool_gasolina/widgets/logo.widget.dart';
@@ -24,31 +25,6 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.deepPurple,
       ),
       home: HomePage(),
-    );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  final _gasCtrl = MoneyMaskedTextController();
-  final _alcCtrl = MoneyMaskedTextController();
-
-  HomePage({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Theme.of(context).primaryColor,
-      body: ListView(children: <Widget>[
-        Logo(),
-        SubmitForm(
-            gasCtrl: _gasCtrl,
-            alcCtrl: _alcCtrl,
-            busy: false,
-            submitFunc: () {}),
-        Success(reset: () {}, result: 'Compensa utilizar X'),
-      ]),
     );
   }
 }
