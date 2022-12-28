@@ -3,6 +3,7 @@ import 'dart:ffi';
 import 'package:alcool_gasolina/widgets/input.widget.dart';
 import 'package:alcool_gasolina/widgets/load-button.widget.dart';
 import 'package:alcool_gasolina/widgets/logo.widget.dart';
+import 'package:alcool_gasolina/widgets/submit-form.widget.dart';
 import 'package:alcool_gasolina/widgets/success.widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_masked_text/flutter_masked_text.dart';
@@ -31,7 +32,9 @@ class HomePage extends StatelessWidget {
   final _gasCtrl = MoneyMaskedTextController();
   final _alcCtrl = MoneyMaskedTextController();
 
-  HomePage({super.key});
+  HomePage({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -39,10 +42,12 @@ class HomePage extends StatelessWidget {
       backgroundColor: Theme.of(context).primaryColor,
       body: ListView(children: <Widget>[
         Logo(),
+        SubmitForm(
+            gasCtrl: _gasCtrl,
+            alcCtrl: _alcCtrl,
+            busy: false,
+            submitFunc: () {}),
         Success(reset: () {}, result: 'Compensa utilizar X'),
-        Input(label: 'Gasolina', ctrl: _gasCtrl),
-        Input(label: 'Álcool', ctrl: _alcCtrl),
-        LoadingButton(busy: true, invert: false, func: () {}, text: 'Calcular')
       ]),
     );
   }
