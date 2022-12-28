@@ -16,6 +16,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  Color _color = Colors.deepPurple;
+
   var gasCtrl = MoneyMaskedTextController();
 
   var alcCtrl = MoneyMaskedTextController();
@@ -29,18 +31,21 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).primaryColor,
-      body: ListView(children: <Widget>[
-        Logo(),
-        _completed
-            ? Success(reset: reset, result: _resultText)
-            : SubmitForm(
-                gasCtrl: gasCtrl,
-                alcCtrl: alcCtrl,
-                busy: _busy,
-                submitFunc: calculate),
-      ]),
-    );
+        backgroundColor: Theme.of(context).primaryColor,
+        body: AnimatedContainer(
+          duration: Duration(milliseconds: 1200),
+          color: _color,
+          child: ListView(children: <Widget>[
+            Logo(),
+            _completed
+                ? Success(reset: reset, result: _resultText)
+                : SubmitForm(
+                    gasCtrl: gasCtrl,
+                    alcCtrl: alcCtrl,
+                    busy: _busy,
+                    submitFunc: calculate),
+          ]),
+        ));
   }
 
   Future calculate() {
@@ -65,6 +70,7 @@ class _HomePageState extends State<HomePage> {
         }
         _completed = true;
         _busy = false;
+        _color = Colors.deepPurpleAccent;
       });
     });
   }
@@ -75,6 +81,7 @@ class _HomePageState extends State<HomePage> {
       gasCtrl = MoneyMaskedTextController();
       _completed = false;
       _busy = false;
+      _color = Colors.deepPurple;
     });
   }
 }
