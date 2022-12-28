@@ -34,7 +34,10 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
       body: ListView(children: <Widget>[
-        const Logo(),
+        Logo(),
+        Container(
+          margin: EdgeInsets.all(30),
+        ),
         Input(label: 'Gasolina', ctrl: _gasCtrl),
         Input(label: 'Álcool', ctrl: _alcCtrl),
         Container(

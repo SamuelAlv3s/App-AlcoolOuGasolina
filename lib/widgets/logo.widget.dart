@@ -10,11 +10,11 @@ class Logo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        const SizedBox(height: 80),
+        SizedBox(height: 80),
         Image.asset('assets/images/aog-white.png',
             height: 80, fit: BoxFit.contain),
-        const SizedBox(height: 30),
-        const Text(
+        SizedBox(height: 30),
+        Text(
           'Álcool ou Gasolina',
           style: TextStyle(
               color: Colors.white,
@@ -22,7 +22,7 @@ class Logo extends StatelessWidget {
               fontFamily: 'Big Shoulders Display'),
           textAlign: TextAlign.center,
         ),
-        const SizedBox(height: 20),
+        SizedBox(height: 20),
       ],
     );
   }

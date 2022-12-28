@@ -19,22 +19,22 @@ class Input extends StatelessWidget {
             width: 100,
             alignment: Alignment.centerRight,
             child: Text(label,
-                style: const TextStyle(
+                style: TextStyle(
                     color: Colors.white,
                     fontSize: 35,
                     fontFamily: 'Big Shoulders Display'))),
-        const SizedBox(
+        SizedBox(
           width: 20,
         ),
         Expanded(
             child: TextFormField(
           controller: ctrl,
           keyboardType: TextInputType.number,
-          style: const TextStyle(
+          style: TextStyle(
               color: Colors.white,
               fontSize: 45,
               fontFamily: 'Big Shoulders Display'),
-          decoration: const InputDecoration(border: InputBorder.none),
+          decoration: InputDecoration(border: InputBorder.none),
         ))
       ],
     );
